@@ -11,12 +11,26 @@ import Firebase
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    //MARK: Variables
     @IBOutlet weak var loginName: UITextField!
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
-    @IBAction func loginButton(_ sender: Any) {
-    }
     let center = NotificationCenter.default
     
+    //MARK: Actions
+    @IBAction func loginButton(_ sender: Any) {
+        if loginName.text != "" {
+            Auth.auth().signInAnonymously(completion: { (user, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                //self.performSegue(withIdentifier: "LoginToChat", sender: nil)
+            })
+        }
+        
+    }
+
+    //MARK: View Properties
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         center.addObserver(self, selector: #selector(self.keyboardShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -29,7 +43,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.loginName.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
+
+    //MARK: keyboard properties
     func keyboardShowNotification(_ notification: Notification) {
         let keyboardEndFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let convertedKeyboardEndFrame = view.convert(keyboardEndFrame, from: view.window)
@@ -40,15 +55,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bottomLayoutConstraint.constant = 50
     }
     
+    //MARK: Text Field resigns first responder, closes keyboard on done button pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // this will hide the keyboard
         textField.resignFirstResponder()
         return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     deinit {
