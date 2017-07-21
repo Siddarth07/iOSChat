@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		736CB8CF2F0FE79C7BCC322A /* Pods_iOSChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078CD8D68A17B3B7047F227B /* Pods_iOSChat.framework */; };
+		BE1E60A91F224B3900A02EBF /* BackgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1E60A81F224B3900A02EBF /* BackgroundImage.png */; };
+		BE1E60AB1F224FE000A02EBF /* GradientBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE1E60AA1F224FE000A02EBF /* GradientBackground.jpg */; };
+		BE1E60AF1F22550300A02EBF /* BlueGrayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1E60AE1F22550300A02EBF /* BlueGrayBackground.png */; };
+		BE1E60B11F225C3700A02EBF /* ChannelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E60B01F225C3700A02EBF /* ChannelListVC.swift */; };
 		BE5EB7051F2101F50034D509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5EB7041F2101F50034D509 /* AppDelegate.swift */; };
 		BE5EB70C1F2101F50034D509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5EB70B1F2101F50034D509 /* Assets.xcassets */; };
 		BE5EB71A1F2101F50034D509 /* iOSChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5EB7191F2101F50034D509 /* iOSChatTests.swift */; };
@@ -39,6 +43,10 @@
 		078CD8D68A17B3B7047F227B /* Pods_iOSChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		197DB9F454770F4697BCA2DD /* Pods-iOSChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSChat/Pods-iOSChat.debug.xcconfig"; sourceTree = "<group>"; };
 		474CA8D901E4808AD91B9350 /* Pods-iOSChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSChat/Pods-iOSChat.release.xcconfig"; sourceTree = "<group>"; };
+		BE1E60A81F224B3900A02EBF /* BackgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundImage.png; sourceTree = "<group>"; };
+		BE1E60AA1F224FE000A02EBF /* GradientBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GradientBackground.jpg; sourceTree = "<group>"; };
+		BE1E60AE1F22550300A02EBF /* BlueGrayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueGrayBackground.png; sourceTree = "<group>"; };
+		BE1E60B01F225C3700A02EBF /* ChannelListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChannelListVC.swift; path = "View Controllers/ChannelListVC.swift"; sourceTree = "<group>"; };
 		BE5EB7011F2101F50034D509 /* iOSChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5EB7041F2101F50034D509 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE5EB70B1F2101F50034D509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +163,9 @@
 		BE5EB7361F2104010034D509 /* Storyboard Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE1E60AE1F22550300A02EBF /* BlueGrayBackground.png */,
+				BE1E60AA1F224FE000A02EBF /* GradientBackground.jpg */,
+				BE1E60A81F224B3900A02EBF /* BackgroundImage.png */,
 				BED9BE8A1F210545004759CC /* Main.storyboard */,
 				BED9BE8B1F210545004759CC /* LaunchScreen.storyboard */,
 			);
@@ -165,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BED9BE8E1F21055D004759CC /* ViewController.swift */,
+				BE1E60B01F225C3700A02EBF /* ChannelListVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -289,6 +301,9 @@
 				BED9BE8C1F210545004759CC /* Main.storyboard in Resources */,
 				BE5EB7351F2103EC0034D509 /* GoogleService-Info.plist in Resources */,
 				BED9BE8D1F210545004759CC /* LaunchScreen.storyboard in Resources */,
+				BE1E60AB1F224FE000A02EBF /* GradientBackground.jpg in Resources */,
+				BE1E60AF1F22550300A02EBF /* BlueGrayBackground.png in Resources */,
+				BE1E60A91F224B3900A02EBF /* BackgroundImage.png in Resources */,
 				BE5EB70C1F2101F50034D509 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1E60B11F225C3700A02EBF /* ChannelListVC.swift in Sources */,
 				BED9BE8F1F21055D004759CC /* ViewController.swift in Sources */,
 				BE5EB7051F2101F50034D509 /* AppDelegate.swift in Sources */,
 			);

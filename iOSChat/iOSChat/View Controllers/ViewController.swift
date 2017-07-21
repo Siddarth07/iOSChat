@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase 
+import QuartzCore
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Variables
     @IBOutlet weak var loginName: UITextField!
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loginButtonVar: UIButton!
     let center = NotificationCenter.default
     
     //MARK: Actions
@@ -27,6 +29,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 //self.performSegue(withIdentifier: "LoginToChat", sender: nil)
             })
         }
+        self.performSegue(withIdentifier: "showChannels", sender: nil)
         
     }
 
@@ -41,14 +44,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.hideKeyboardByViewPress()
         self.loginName.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        setButtonProperties()
     }
-
+    
+    func setButtonProperties() {
+        loginName.layer.cornerRadius = 19
+        loginButtonVar.layer.cornerRadius = 19;
+        loginButtonVar.clipsToBounds = true
+    }
+    
     //MARK: keyboard properties
     func keyboardShowNotification(_ notification: Notification) {
         let keyboardEndFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let convertedKeyboardEndFrame = view.convert(keyboardEndFrame, from: view.window)
-        bottomLayoutConstraint.constant = view.bounds.maxY - convertedKeyboardEndFrame.minY
+        bottomLayoutConstraint.constant = view.bounds.maxY - convertedKeyboardEndFrame.minY + 15
     }
     
     func keyboardHideNotification(_ notification: Notification) {
@@ -65,6 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     deinit {
         center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let navigationVC = segue.destination as! UINavigationController
+        let channelVC = navigationVC.viewControllers.first as! ChannelListVC
+        channelVC.senderName = loginName?.text
     }
 }
 
